@@ -28,23 +28,26 @@ jobs:
       - name: Install keymap-drawer
         run: pip install keymap-drawer
 
+      - name: Create output directory
+        run: mkdir -p keymap-drawer
+
       - name: Parse keymap
-        run: keymap-drawer parse -z config/corne.keymap > keymap-drawer/corne.yaml
+        run: python -m keymap_drawer parse -z config/corne.keymap > keymap-drawer/corne.yaml
 
       - name: Draw complete keymap
-        run: keymap-drawer draw -z corne keymap-drawer/corne.yaml -o keymap-drawer/corne.svg
+        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml -o keymap-drawer/corne.svg
 
       - name: Draw layer 0
-        run: keymap-drawer draw -z corne keymap-drawer/corne.yaml --select-layers "default_layer" -o keymap-drawer/corne_layer0.svg
+        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml --select-layers "default_layer" -o keymap-drawer/corne_layer0.svg
 
       - name: Draw layer 1
-        run: keymap-drawer draw -z corne keymap-drawer/corne.yaml --select-layers "lower_layer" -o keymap-drawer/corne_layer1.svg
+        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml --select-layers "lower_layer" -o keymap-drawer/corne_layer1.svg
 
       - name: Draw layer 2
-        run: keymap-drawer draw -z corne keymap-drawer/corne.yaml --select-layers "raise_layer" -o keymap-drawer/corne_layer2.svg
+        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml --select-layers "raise_layer" -o keymap-drawer/corne_layer2.svg
 
       - name: Draw layer 3
-        run: keymap-drawer draw -z corne keymap-drawer/corne.yaml --select-layers "adjust_layer" -o keymap-drawer/corne_layer3.svg
+        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml --select-layers "adjust_layer" -o keymap-drawer/corne_layer3.svg
 
       - name: Commit and push
         run: |
