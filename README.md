@@ -14,13 +14,17 @@ This repository contains the ZMK configuration for a Corne keyboard with nRF5284
 
 ## Keymap
 
-![Keymap](keymap-drawer/corne.svg)
+### Layer 0 - Base (QWERTY)
+![Base Layer](keymap-drawer/corne_layer0.svg)
 
-The default layout includes:
-- **Layer 0 (Base)**: QWERTY layout
-- **Layer 1 (Lower)**: Numbers and Bluetooth controls
-- **Layer 2 (Raise)**: Symbols and special characters
-- **Layer 3 (Adjust)**: RGB controls and settings
+### Layer 1 - Lower (Numbers & Bluetooth)
+![Lower Layer](keymap-drawer/corne_layer1.svg)
+
+### Layer 2 - Raise (Symbols)
+![Raise Layer](keymap-drawer/corne_layer2.svg)
+
+### Layer 3 - Adjust (RGB Controls)
+![Adjust Layer](keymap-drawer/corne_layer3.svg)
 
 ## Flashing Instructions
 
