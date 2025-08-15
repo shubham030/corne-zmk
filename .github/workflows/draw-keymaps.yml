@@ -25,10 +25,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install keymap-drawer with compatible tree-sitter
-        run: |
-          pip install "tree-sitter<0.21" "tree-sitter-devicetree<0.21"
-          pip install keymap-drawer
+      - name: Install compatible keymap-drawer
+        run: pip install "keymap-drawer<0.20"
 
       - name: Create output directory
         run: mkdir -p keymap-drawer
@@ -37,19 +35,19 @@ jobs:
         run: python -m keymap_drawer parse -z config/corne.keymap > keymap-drawer/corne.yaml
 
       - name: Draw complete keymap
-        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml -o keymap-drawer/corne.svg
+        run: python -m keymap_drawer draw keymap-drawer/corne.yaml -o keymap-drawer/corne.svg
 
-      - name: Draw layer 0
-        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml --select-layers "default_layer" -o keymap-drawer/corne_layer0.svg
+      - name: Draw layer 0 - Base
+        run: python -m keymap_drawer draw keymap-drawer/corne.yaml --select-layers "default" -o keymap-drawer/corne_layer0.svg
 
-      - name: Draw layer 1
-        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml --select-layers "lower_layer" -o keymap-drawer/corne_layer1.svg
+      - name: Draw layer 1 - Lower
+        run: python -m keymap_drawer draw keymap-drawer/corne.yaml --select-layers "lower" -o keymap-drawer/corne_layer1.svg
 
-      - name: Draw layer 2
-        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml --select-layers "raise_layer" -o keymap-drawer/corne_layer2.svg
+      - name: Draw layer 2 - Raise
+        run: python -m keymap_drawer draw keymap-drawer/corne.yaml --select-layers "raise" -o keymap-drawer/corne_layer2.svg
 
-      - name: Draw layer 3
-        run: python -m keymap_drawer draw -z corne keymap-drawer/corne.yaml --select-layers "adjust_layer" -o keymap-drawer/corne_layer3.svg
+      - name: Draw layer 3 - Adjust
+        run: python -m keymap_drawer draw keymap-drawer/corne.yaml --select-layers "adjust" -o keymap-drawer/corne_layer3.svg
 
       - name: Commit and push
         run: |
