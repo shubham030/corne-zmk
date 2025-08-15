@@ -10,20 +10,32 @@ This repository contains the ZMK configuration for a Corne keyboard with nRF5284
 - Bluetooth connectivity
 - Deep sleep mode
 - GitHub Actions for automatic firmware builds
+- Automatic keymap visualization
+
+## Keymap
+
+![Keymap](keymap-drawer/corne.svg)
+
+The default layout includes:
+- **Layer 0 (Base)**: QWERTY layout
+- **Layer 1 (Lower)**: Numbers and Bluetooth controls
+- **Layer 2 (Raise)**: Symbols and special characters
+- **Layer 3 (Adjust)**: RGB controls and settings
 
 ## Flashing Instructions
 
-1. Put your keyboard into bootloader mode
-2. Download the latest firmware from GitHub Actions artifacts
+1. Put your keyboard into bootloader mode (double-tap reset button)
+2. Download the latest firmware from [GitHub Actions](../../actions) artifacts
 3. Copy the `.uf2` files to the keyboard's mass storage device
+4. Flash both left (`corne_left-nice_nano_v2-zmk.uf2`) and right (`corne_right-nice_nano_v2-zmk.uf2`) halves
 
-## Layout
+## ZMK Studio
 
-The default layout includes:
-- QWERTY base layer
-- Lower layer with numbers and Bluetooth controls
-- Raise layer with symbols
-- Adjust layer with RGB controls
+This configuration includes ZMK Studio support for real-time keymap editing:
+1. Pair your keyboard via Bluetooth
+2. Open [ZMK Studio](https://github.com/zmkfirmware/zmk-studio)
+3. Connect to your keyboard
+4. Edit your keymap live without reflashing
 
 ## Building Locally
 
@@ -32,6 +44,6 @@ docker run --rm -v $(pwd):/app -w /app zmkfirmware/zmk-build-arm:stable \
   west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=corne_left -DZMK_CONFIG=/app/config
 ```
 
-## ZMK Studio
+## Keymap Visualization
 
-This configuration includes ZMK Studio support. Connect your keyboard and use the ZMK Studio app to modify your keymap in real-time.
+Layout diagrams are automatically generated using [keymap-drawer](https://github.com/caksoylar/keymap-drawer) and updated on every keymap change.

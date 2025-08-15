@@ -1,0 +1,37 @@
+draw_config:
+  key_w: 60
+  key_h: 56
+  split_gap: 30
+  combo_w: 28
+  combo_h: 26
+  key_rx: 6
+  key_ry: 6
+  n_columns: 6
+  n_rows: 4
+  svg_style: |
+    /* inherit to force style inheritance on text elements */
+    text {
+      font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+      font-size: 14px;
+      font-weight: bold;
+      fill: #24292e;
+      dominant-baseline: middle;
+      text-anchor: middle;
+    }
+    /* color accent for layer text */
+    text.label {
+      font-weight: normal;
+      font-size: 12px;
+    }
+    /* thumb key styling */
+    .thumb {
+      fill: #f6f8fa;
+    }
+    .thumb text {
+      font-size: 12px;
+    }
+
+parse_config:
+  mark_alternate_layer_activators: false
+  sticky_label: sticky
+  toggle_label: toggle
