@@ -1,7 +1,7 @@
 &kscan0 {
     col-gpios
-        = <&pro_micro 16 GPIO_ACTIVE_HIGH>  // Column 0 - TAB, CTRL, SHIFT (was pin 21)
-        , <&pro_micro 10 GPIO_ACTIVE_HIGH>  // Column 1 - Q, A, Z (was pin 20)
+        = <&gpio0 9 GPIO_ACTIVE_HIGH>       // Column 0 - TAB, CTRL, SHIFT (P0.09)
+        , <&gpio0 10 GPIO_ACTIVE_HIGH>      // Column 1 - Q, A, Z (P0.10)
         , <&pro_micro 19 GPIO_ACTIVE_HIGH>  // Column 2 - W, S, X
         , <&pro_micro 18 GPIO_ACTIVE_HIGH>  // Column 3 - E, D, C
         , <&pro_micro 15 GPIO_ACTIVE_HIGH>  // Column 4 - R, F, V
