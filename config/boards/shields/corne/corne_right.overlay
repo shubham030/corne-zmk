@@ -1,0 +1,16 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+&default_transform {
+    col-offset = <6>;
+};
+
+&kscan0 {
+    col-gpios
+        = <&pro_micro 14 GPIO_ACTIVE_HIGH>  // Column 6 - Y, H, N
+        , <&pro_micro 15 GPIO_ACTIVE_HIGH>  // Column 7 - U, J, M
+        , <&pro_micro 18 GPIO_ACTIVE_HIGH>  // Column 8 - I, K, comma
+        , <&pro_micro 19 GPIO_ACTIVE_HIGH>  // Column 9 - O, L, dot
+        , <&pro_micro 16 GPIO_ACTIVE_HIGH>  // Column 10 - P, semicolon, slash (was pin 20)
+        , <&pro_micro 10 GPIO_ACTIVE_HIGH>  // Column 11 - BSPC, quote, ESC (was pin 21)
+        ;
+};
